@@ -1,0 +1,40 @@
+#import library
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.preprocessing import OneHotEncoder
+from sklearn.metrics import accuracy_score
+
+#Load data
+data = pd.read_csv('data_mahasiswa.csv')
+
+#Melakukan normalisasi pada kolom Kemampuan dan Preferensi
+data['kemampuan'] = pd.to_numeric(data['kemampuan'], errors='coerce')
+data['preferensi'] = pd.to_numeric(data['preferensi'], errors='coerce')
+data.fillna(data.mean(), inplace=True)
+
+#Pemisahan fitur dan label
+X = data[['minat', 'kemampuan', 'preferensi']]
+y = data['program_studi']
+
+#Transformasi fitur
+encoder = OneHotEncoder()
+X_encoded = encoder.fit_transform(X[['minat']])
+
+#Pembagian data
+X_train, X_test, y_train, y_test = train_test_split(X_encoded, y, test_size=0.2, random_state=42)
+
+#Melatih model
+knn = KNeighborsClassifier(n_neighbors=3)
+knn.fit(X_train, y_train)
+
+#Evaluasi Model
+y_pred = knn.predict(X_test)
+accuracy = accuracy_score(y_test, y_pred)
+print('Akurasi Model:', accuracy)
+
+#Prediksi
+mahasiswa_baru = pd.DataFrame({'minat': ['Teknik'], 'kemampuan': [3], 'preferensi': [4]})
+mahasiswa_baru_encoded = encoder.transform(mahasiswa_baru[['minat']])
+program_studi_rekomendasi = knn.predict(mahasiswa_baru_encoded)
+print('Program Studi Rekomendasi:', program_studi_rekomendasi[0])
