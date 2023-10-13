@@ -1,0 +1,21 @@
+mahasiswa_id,minat,kemampuan,preferensi,program_studi
+MHS001,Teknologi,4,5,Teknik Informatika
+MHS002,Seni,2,4,Sistem Informasi
+MHS003,Bisnis,3,3,Sintem Informasi
+MHS004,Kesehatan,5,2,Sistem Informasi
+MHS005,Sains,2,5,Teknik Informatika
+MHS006,Komunikasi,3,4,Teknik Informatika
+MHS007,Bahasa,4,3,Teknologi Informasi
+MHS008,Olahraga,3,2,Informatika
+MHS009,Desain,4,5,Sistem Informasi
+MHS010,Musik,2,4,Sistem Informasi
+MHS011,Sosial,3,3,Teknik Informatika
+MHS012,Pendidikan,5,2,Teknologi Informasi
+MHS013,Hukum,4,5,Sistem Informasi
+MHS014,Ekonomi,3,4,Sistem Informasi
+MHS015,Ilmu Komputer,2,3,Teknik Informatika
+MHS016,Teknik,4,2,Teknologi Informasi
+MHS017,Matematika,5,5,informatika
+MHS018,Fisika,4,4,Teknik Informatika
+MHS019,Kimia,3,3,Teknik Informatika
+MHS020,Biologi,2,2,Teknik Informatika
